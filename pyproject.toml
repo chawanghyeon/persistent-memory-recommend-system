@@ -1,0 +1,45 @@
+[project]
+name = "persistent-memory-recsys"
+version = "0.1.0"
+description = "DDD-based modular monolith for persistent-memory search and recommendation."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "alembic>=1.16.0,<2.0.0",
+  "fastapi>=0.115.0,<1.0.0",
+  "sqlalchemy>=2.0.40,<3.0.0",
+  "uvicorn>=0.35.0,<1.0.0",
+]
+
+[dependency-groups]
+dev = [
+  "httpx>=0.28.0,<1.0.0",
+  "pytest>=8.3.0,<9.0.0",
+  "ruff>=0.11.0,<1.0.0",
+]
+
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/persistent_memory_recsys"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/tests",
+  "/README.md",
+  "/pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
