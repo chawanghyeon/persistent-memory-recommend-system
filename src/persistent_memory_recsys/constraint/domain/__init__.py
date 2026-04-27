@@ -1,1 +1,0 @@
-"""Constraint domain models."""

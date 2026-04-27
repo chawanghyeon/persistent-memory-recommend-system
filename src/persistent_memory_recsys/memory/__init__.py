@@ -1,1 +1,0 @@
-"""Memory bounded context."""
